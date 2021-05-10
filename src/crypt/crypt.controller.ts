@@ -1,4 +1,5 @@
 import { Controller, Post, Body } from '@nestjs/common';
+
 import { CryptService } from './crypt.service';
 
 @Controller('crypt')

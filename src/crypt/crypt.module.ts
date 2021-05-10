@@ -1,19 +1,11 @@
 import { Module } from '@nestjs/common';
-import { ClientsModule, Transport } from '@nestjs/microservices';
 
 import { CryptService } from './crypt.service';
 import { CryptController } from './crypt.controller';
+import { ClientModule } from '../client/client.module';
 
 @Module({
-  imports: [
-    ClientsModule.register([
-      {
-        name: 'MICROSERVICE',
-        transport: Transport.TCP,
-        options: { port: 4000 },
-      },
-    ])
-  ],
+  imports: [ClientModule.register()],
   controllers: [CryptController],
   providers: [CryptService]
 })

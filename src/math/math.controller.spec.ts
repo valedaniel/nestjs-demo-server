@@ -1,4 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
+
+import { ClientModule } from '../client/client.module';
+
 import { MathController } from './math.controller';
 import { MathService } from './math.service';
 
@@ -7,6 +10,7 @@ describe('MathController', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
+      imports: [ClientModule.register()],
       controllers: [MathController],
       providers: [MathService],
     }).compile();
